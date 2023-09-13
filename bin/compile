@@ -72,9 +72,6 @@ else
   flutter/bin/flutter upgrade --quiet | indent
 fi
 
-flutter/bin/flutter downgrade $FLUTTER_VERSION | indent
-flutter/bin/flutter --version
-
 print "Enabling Web support"
 flutter/bin/flutter config --enable-web --quiet | indent
 
