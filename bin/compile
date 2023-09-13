@@ -56,6 +56,7 @@ if [ -n "$FLUTTER_VERSION" ]; then
   if [ "$FLUTTER_VERSION" != "$FLUTTER_INSTALLED_VERSION" ]; then
     print "Installing Flutter SDK version : $FLUTTER_VERSION"
     flutter/bin/flutter downgrade $FLUTTER_VERSION | indent
+    flutter/bin/flutter --version
   fi
   rm flutter.json
 
@@ -69,8 +70,8 @@ else
   flutter/bin/flutter upgrade --quiet | indent
 fi
 
-print "Checking out specific version"
-git checkout $FLUTTER_VERSION
+flutter/bin/flutter downgrade $FLUTTER_VERSION | indent
+flutter/bin/flutter --version
 
 print "Enabling Web support"
 flutter/bin/flutter config --enable-web --quiet | indent
