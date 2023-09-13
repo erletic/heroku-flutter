@@ -44,7 +44,8 @@ if [ -d $CACHE_DIR/flutter ]; then
 else
   print "Installing SDK from Github repository."
   git clone https://github.com/flutter/flutter.git
-  git checkout $FLUTTER_VERSION
+  # checkout latest stable version
+  git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 fi
 
 # Check if FLUTTER_VERSION variables is set.
