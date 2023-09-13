@@ -82,7 +82,7 @@ print "Getting packages from Flutter project"
 flutter/bin/flutter pub get | indent
 
 print "Compiling the project."
-flutter/bin/flutter build web | indent
+flutter/bin/flutter build web --release | indent
 # --dart-define=FLUTTER_WEB_USE_EXPERIMENTAL_CANVAS_TEXT=true
 
 PUB_CACHE="$HOME/.pub-cache/"
